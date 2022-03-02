@@ -1,1 +1,31 @@
-<p>register-member works!</p>
+<h2>Member Registration</h2>
+<div>
+    <mat-horizontal-stepper linear>
+      <mat-step label="Member Details" completed="true">
+        <p>Member Details</p>
+        <div>
+            <button mat-button matStepperNext>Next</button>
+        </div>
+      </mat-step>
+      <mat-step label="Subscription Details" completed="true">
+        <p>Subscription Details</p>
+        <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+        </div>
+      </mat-step>
+      <mat-step label="Students" completed="false" optional>
+        <p>Student Details</p>
+        <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+        </div>
+      </mat-step>
+      <mat-step label="Location Preferences" completed="false">
+        <p>Location Preferences</p>
+        <div>
+            <button mat-button matStepperPrevious>Back</button>
+        </div>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </div>

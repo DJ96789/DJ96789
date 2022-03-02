@@ -1,0 +1,36 @@
+<h2>Neighboorhoods</h2>
+<mat-form-field>
+    <input (keyup)="applyFilter($any($event.target).value)" matInput placeholder="Filter">
+</mat-form-field>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+      <th class="th-left w-100" mat-header-cell *matHeaderCellDef> No. </th>
+      <td class="th-left w-100" mat-cell *matCellDef="let element"> {{element.position}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th class="th-left w-100" mat-header-cell *matHeaderCellDef> Name </th>
+      <td class="th-left w-100" mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="weight">
+      <th class="th-left w-100" mat-header-cell *matHeaderCellDef> Weight </th>
+      <td class="th-left w-100" mat-cell *matCellDef="let element"> {{element.weight}} </td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="symbol">
+      <th class="th-left w-100" mat-header-cell *matHeaderCellDef> Symbol </th>
+      <td class="th-left w-100" mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr (click)="logData(row)" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>

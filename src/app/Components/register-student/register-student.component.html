@@ -1,1 +1,24 @@
-<p>register-student works!</p>
+<h2>Student Registration</h2>
+<div>
+    <mat-horizontal-stepper linear>
+      <mat-step label="Student Details" completed="true">
+        <p>Student Details</p>
+        <div>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </mat-step>
+      <mat-step label="Learning Preferences" completed="false" optional>
+        <p>Learning Preferences</p>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </mat-step>
+      <mat-step label="Location Preferences" completed="false">
+        <p>Location Preferences</p>
+        <div>
+            <button mat-button matStepperPrevious>Back</button>
+        </div>
+        </mat-step>
+    </mat-horizontal-stepper>
+  </div>

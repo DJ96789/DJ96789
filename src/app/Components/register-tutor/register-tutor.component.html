@@ -1,1 +1,471 @@
-<p>register-tutor works!</p>
+<h2>Tutor Registration</h2>
+<div>
+    <mat-horizontal-stepper linear>
+        <mat-step label="Personal Details" completed="true">
+            <p>Personal Details</p>
+            <div>
+                <mat-form-field floatLabel="never" appearance="fill" color="accent">
+                    <mat-label>First Name</mat-label>
+                    <input matInput required />
+                </mat-form-field>
+                <mat-form-field floatLabel="always" appearance="fill" color="warn">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput required />
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="fill">
+                    <mat-label>Login Email</mat-label>
+                    <input matInput required />
+                </mat-form-field>
+                <mat-form-field floatLabel="auto" appearance="fill">
+                    <mat-label>Password</mat-label>
+                    <input type="password" matInput required />
+                </mat-form-field>
+            </div>
+            <div>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+        </mat-step>
+        <mat-step label="Subject Specializations" completed="false" optional>
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>Select subjects you teach:</mat-label>
+                    <mat-select [(value)]="tutorSpecializations" multiple>
+                        <mat-option>None</mat-option>
+                        <mat-optgroup label="English and Language Arts">
+                            <mat-option value="ENGL:K-5 ELA">K-5 ELA</mat-option>
+                            <mat-option value="ENGL:6-8 ELA">6-8 ELA</mat-option>
+                            <mat-option value="ENGL:American literature">American literature</mat-option>
+                            <mat-option value="ENGL:British literature">British literature</mat-option>
+                            <mat-option value="ENGL:Contemporary literature">Contemporary literature</mat-option>
+                            <mat-option value="ENGL:Creative writing">Creative writing</mat-option>
+                            <mat-option value="ENGL:Communication skills">Communication skills</mat-option>
+                            <mat-option value="ENGL:English language and composition">English language and composition
+                            </mat-option>
+                            <mat-option value="ENGL:Journalism">Journalism</mat-option>
+                            <mat-option value="ENGL:World literature">World literature</mat-option>
+                        </mat-optgroup>
+                        <mat-optgroup label="Languages">
+                            <mat-option value="LANG:ESL">ESL</mat-option>
+                            <mat-option value="LANG:Spanish">Spanish</mat-option>
+                            <mat-option value="LANG:French">French</mat-option>
+                            <mat-option value="LANG:German">German</mat-option>
+                            <mat-option value="LANG:Chinese">Chinese</mat-option>
+                        </mat-optgroup>
+                        <mat-optgroup label="Mathematics">
+                            <mat-option value="MATH:K-5 math">K-5 math</mat-option>
+                            <mat-option value="MATH:6-8 math">6-8 math</mat-option>
+                            <mat-option value="MATH:Algebra 1">Algebra 1</mat-option>
+                            <mat-option value="MATH:Geometry">Geometry</mat-option>
+                            <mat-option value="MATH:Algebra 2">Algebra 2</mat-option>
+                            <mat-option value="MATH:Trigonometry">Trigonometry</mat-option>
+                            <mat-option value="MATH:Pre-Calculus">Pre-Calculus</mat-option>
+                            <mat-option value="MATH:Calculus">Calculus</mat-option>
+                            <mat-option value="MATH:K-5 science">K-5 science</mat-option>
+                            <mat-option value="MATH:6-8 science">6-8 science</mat-option>
+                            <mat-option value="MATH:Biology">Biology</mat-option>
+                            <mat-option value="MATH:Chemistry">Chemistry</mat-option>
+                            <mat-option value="MATH:Physical/Earth Science">Physical/Earth Science</mat-option>
+                            <mat-option value="MATH:Physics">Physics</mat-option>
+                            <mat-option value="MATH:Environmental Science">Environmental Science</mat-option>
+                            <mat-option value="MATH:Astronomy">Astronomy</mat-option>
+                            <mat-option value="MATH:Anatomy">Anatomy</mat-option>
+                        </mat-optgroup>
+                        <mat-optgroup label="Social Studies and History">
+                            <mat-option value="HIST:K-5 Social Studies">K-5 Social Studies</mat-option>
+                            <mat-option value="HIST:6-8 Social Studies">6-8 Social Studies</mat-option>
+                            <mat-option value="HIST:US History/Government">US History/Government</mat-option>
+                            <mat-option value="HIST:World History">World History</mat-option>
+                            <mat-option value="HIST:Anthropology">Anthropology</mat-option>
+                            <mat-option value="HIST:European History">European History</mat-option>
+                            <mat-option value="HIST:Geography">Geography</mat-option>
+                            <mat-option value="HIST:Global studies">Global studies</mat-option>
+                            <mat-option value="HIST:Macroeconomics">Macroeconomics</mat-option>
+                            <mat-option value="HIST:Microeconomics">Microeconomics</mat-option>
+                            <mat-option value="HIST:Psychology">Psychology</mat-option>
+                            <mat-option value="HIST:Sociology">Sociology</mat-option>
+                            <mat-option value="HIST:Women's studies">Women's studies</mat-option>
+                        </mat-optgroup>
+                        <mat-optgroup label="Test Prep">
+                            <mat-option value="PREP:ISEES">ISEES</mat-option>
+                            <mat-option value="PREP:SSAT">SSAT</mat-option>
+                            <mat-option value="PREP:SHSAT">SHSAT</mat-option>
+                            <mat-option value="PREP:State Tests">State Tests</mat-option>
+                            <mat-option value="PREP:NYS Regents">NYS Regents</mat-option>
+                            <mat-option value="PREP:ACT">ACT</mat-option>
+                            <mat-option value="PREP:SAT">SAT</mat-option>
+                            <mat-option value="PREP:SAT Subject Tests">SAT Subject Tests</mat-option>
+                            <mat-option value="PREP:LSAT">LSAT</mat-option>
+                            <mat-option value="PREP:GRE">GRE</mat-option>
+                            <mat-option value="PREP:GMAT">GMAT</mat-option>
+                            <mat-option value="PREP:Other">Other</mat-option>
+                        </mat-optgroup>
+                        <mat-optgroup label="Other">
+                            <mat-option value="OTHR:College Apps">College Apps</mat-option>
+                            <mat-option value="OTHR:AP Levels">AP Levels</mat-option>
+                            <mat-option value="OTHR:Other">Other</mat-option>
+                        </mat-optgroup>
+                    </mat-select>
+                </mat-form-field><br>
+                {{tutorSpecializations}}
+            </div>
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+        </mat-step>
+        <mat-step label="Location Detail" completed="false">
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>Select locations where you teach:</mat-label>
+                    <mat-select [(value)]="tutorNeighborhoods" multiple>
+                        <mat-option>None</mat-option>
+                        <mat-optgroup label="Bronx">
+                            <mat-option value="BRON:Allerton">Allerton</mat-option>
+                            <mat-option value="BRON:Bathgate">Bathgate</mat-option>
+                            <mat-option value="BRON:Baychester">Baychester</mat-option>
+                            <mat-option value="BRON:Bedford Park">Bedford Park</mat-option>
+                            <mat-option value="BRON:Belmont">Belmont</mat-option>
+                            <mat-option value="BRON:Bronxdale">Bronxdale</mat-option>
+                            <mat-option value="BRON:Bronx Park South">Bronx Park South</mat-option>
+                            <mat-option value="BRON:Bronx River">Bronx River</mat-option>
+                            <mat-option value="BRON:Castle Hill">Castle Hill</mat-option>
+                            <mat-option value="BRON:City Island">City Island</mat-option>
+                            <mat-option value="BRON:Claremont Village">Claremont Village</mat-option>
+                            <mat-option value="BRON:Clason Point">Clason Point</mat-option>
+                            <mat-option value="BRON:Concourse">Concourse</mat-option>
+                            <mat-option value="BRON:Concourse Village">Concourse Village</mat-option>
+                            <mat-option value="BRON:Co op City">Co op City</mat-option>
+                            <mat-option value="BRON:Country Club">Country Club</mat-option>
+                            <mat-option value="BRON:East Tremont">East Tremont</mat-option>
+                            <mat-option value="BRON:Eastchester">Eastchester</mat-option>
+                            <mat-option value="BRON:Edenwald">Edenwald</mat-option>
+                            <mat-option value="BRON:Edgewater Park">Edgewater Park</mat-option>
+                            <mat-option value="BRON:Fieldston">Fieldston</mat-option>
+                            <mat-option value="BRON:Fordham">Fordham</mat-option>
+                            <mat-option value="BRON:High Bridge">High Bridge</mat-option>
+                            <mat-option value="BRON:Hunts Point">Hunts Point</mat-option>
+                            <mat-option value="BRON:Kingsbridge">Kingsbridge</mat-option>
+                            <mat-option value="BRON:Kingsbridge Heights">Kingsbridge Heights</mat-option>
+                            <mat-option value="BRON:Longwood">Longwood</mat-option>
+                            <mat-option value="BRON:Marble Hill">Marble Hill</mat-option>
+                            <mat-option value="BRON:Melrose">Melrose</mat-option>
+                            <mat-option value="BRON:Morris Heights">Morris Heights</mat-option>
+                            <mat-option value="BRON:Morris Park">Morris Park</mat-option>
+                            <mat-option value="BRON:Morrisania">Morrisania</mat-option>
+                            <mat-option value="BRON:Mott Haven">Mott Haven</mat-option>
+                            <mat-option value="BRON:Mount Eden">Mount Eden</mat-option>
+                            <mat-option value="BRON:Mount Hope">Mount Hope</mat-option>
+                            <mat-option value="BRON:North Riverdale">North Riverdale</mat-option>
+                            <mat-option value="BRON:Norwood">Norwood</mat-option>
+                            <mat-option value="BRON:Olinville">Olinville</mat-option>
+                            <mat-option value="BRON:Parkchester">Parkchester</mat-option>
+                            <mat-option value="BRON:Pelham Bay">Pelham Bay</mat-option>
+                            <mat-option value="BRON:Pelham Gardens">Pelham Gardens</mat-option>
+                            <mat-option value="BRON:Pelham Parkway">Pelham Parkway</mat-option>
+                            <mat-option value="BRON:Port Morris">Port Morris</mat-option>
+                            <mat-option value="BRON:Riverdale">Riverdale</mat-option>
+                            <mat-option value="BRON:Schuylerville">Schuylerville</mat-option>
+                            <mat-option value="BRON:Soundview">Soundview</mat-option>
+                            <mat-option value="BRON:Spuyten Duyvil">Spuyten Duyvil</mat-option>
+                            <mat-option value="BRON:Throgs Neck">Throgs Neck</mat-option>
+                            <mat-option value="BRON:Unionport">Unionport</mat-option>
+                            <mat-option value="BRON:University Heights">University Heights</mat-option>
+                            <mat-option value="BRON:Van Nest">Van Nest</mat-option>
+                            <mat-option value="BRON:Wakefield">Wakefield</mat-option>
+                            <mat-option value="BRON:West Farms">West Farms</mat-option>
+                            <mat-option value="BRON:Westchester Square">Westchester Square</mat-option>
+                            <mat-option value="BRON:Williamsbridge">Williamsbridge</mat-option>
+                            <mat-option value="BRON:Woodlawn">Woodlawn</mat-option>
+                        </mat-optgroup>
+                        <mat-optgroup label="Brooklyn">
+                            <mat-option value="BROO:Bath Beach">Bath Beach</mat-option>
+                            <mat-option value="BROO:Bay Ridge">Bay Ridge</mat-option>
+                            <mat-option value="BROO:Bedford Stuyvesant">Bedford Stuyvesant</mat-option>
+                            <mat-option value="BROO:Bensonhurst">Bensonhurst</mat-option>
+                            <mat-option value="BROO:Bergen Beach">Bergen Beach</mat-option>
+                            <mat-option value="BROO:Boerum Hill">Boerum Hill</mat-option>
+                            <mat-option value="BROO:Borough Park">Borough Park</mat-option>
+                            <mat-option value="BROO:Brighton Beach">Brighton Beach</mat-option>
+                            <mat-option value="BROO:Broadway Junction">Broadway Junction</mat-option>
+                            <mat-option value="BROO:Brooklyn Heights">Brooklyn Heights</mat-option>
+                            <mat-option value="BROO:Brownsville">Brownsville</mat-option>
+                            <mat-option value="BROO:Bushwick">Bushwick</mat-option>
+                            <mat-option value="BROO:Canarsie">Canarsie</mat-option>
+                            <mat-option value="BROO:Carroll Gardens">Carroll Gardens</mat-option>
+                            <mat-option value="BROO:City Line">City Line</mat-option>
+                            <mat-option value="BROO:Clinton Hill">Clinton Hill</mat-option>
+                            <mat-option value="BROO:Cobble Hill">Cobble Hill</mat-option>
+                            <mat-option value="BROO:Coney Island">Coney Island</mat-option>
+                            <mat-option value="BROO:Crown Heights">Crown Heights</mat-option>
+                            <mat-option value="BROO:Cypress Hills">Cypress Hills</mat-option>
+                            <mat-option value="BROO:Ditmas Park">Ditmas Park</mat-option>
+                            <mat-option value="BROO:Downtown">Downtown</mat-option>
+                            <mat-option value="BROO:DUMBO">DUMBO</mat-option>
+                            <mat-option value="BROO:Dyker Heights">Dyker Heights</mat-option>
+                            <mat-option value="BROO:East Flatbush">East Flatbush</mat-option>
+                            <mat-option value="BROO:East New York">East New York</mat-option>
+                            <mat-option value="BROO:East Williamsburg">East Williamsburg</mat-option>
+                            <mat-option value="BROO:Farragut">Farragut</mat-option>
+                            <mat-option value="BROO:Flatbush">Flatbush</mat-option>
+                            <mat-option value="BROO:Flatlands">Flatlands</mat-option>
+                            <mat-option value="BROO:Fort Greene">Fort Greene</mat-option>
+                            <mat-option value="BROO:Fort Hamilton">Fort Hamilton</mat-option>
+                            <mat-option value="BROO:Fulton Ferry">Fulton Ferry</mat-option>
+                            <mat-option value="BROO:Georgetown">Georgetown</mat-option>
+                            <mat-option value="BROO:Gerritsen Beach">Gerritsen Beach</mat-option>
+                            <mat-option value="BROO:Gowanus">Gowanus</mat-option>
+                            <mat-option value="BROO:Gravesend">Gravesend</mat-option>
+                            <mat-option value="BROO:Greenpoint">Greenpoint</mat-option>
+                            <mat-option value="BROO:Highland Park">Highland Park</mat-option>
+                            <mat-option value="BROO:Homecrest">Homecrest</mat-option>
+                            <mat-option value="BROO:Kensington">Kensington</mat-option>
+                            <mat-option value="BROO:Kings Highway">Kings Highway</mat-option>
+                            <mat-option value="BROO:Manhattan Beach">Manhattan Beach</mat-option>
+                            <mat-option value="BROO:Manhattan Terrace">Manhattan Terrace</mat-option>
+                            <mat-option value="BROO:Mapleton">Mapleton</mat-option>
+                            <mat-option value="BROO:Marine Park">Marine Park</mat-option>
+                            <mat-option value="BROO:Midwood">Midwood</mat-option>
+                            <mat-option value="BROO:Mill Basin">Mill Basin</mat-option>
+                            <mat-option value="BROO:Mill Island">Mill Island</mat-option>
+                            <mat-option value="BROO:Navy Yard">Navy Yard</mat-option>
+                            <mat-option value="BROO:New Lots">New Lots</mat-option>
+                            <mat-option value="BROO:North Side">North Side</mat-option>
+                            <mat-option value="BROO:Ocean Hill">Ocean Hill</mat-option>
+                            <mat-option value="BROO:Ocean Parkway">Ocean Parkway</mat-option>
+                            <mat-option value="BROO:Paerdegat Basin">Paerdegat Basin</mat-option>
+                            <mat-option value="BROO:Park Slope">Park Slope</mat-option>
+                            <mat-option value="BROO:Plum Beach">Plum Beach</mat-option>
+                            <mat-option value="BROO:Prospect Heights">Prospect Heights</mat-option>
+                            <mat-option value="BROO:Prospect Lefferts Gardens">Prospect Lefferts Gardens</mat-option>
+                            <mat-option value="BROO:Prospect Park South">Prospect Park South</mat-option>
+                            <mat-option value="BROO:Red Hook">Red Hook</mat-option>
+                            <mat-option value="BROO:Remsen Village">Remsen Village</mat-option>
+                            <mat-option value="BROO:Rugby">Rugby</mat-option>
+                            <mat-option value="BROO:Sea Gate">Sea Gate</mat-option>
+                            <mat-option value="BROO:Sheepshead Bay">Sheepshead Bay</mat-option>
+                            <mat-option value="BROO:South Side">South Side</mat-option>
+                            <mat-option value="BROO:Spring Creek">Spring Creek</mat-option>
+                            <mat-option value="BROO:Starrett City">Starrett City</mat-option>
+                            <mat-option value="BROO:Stuyvesant Heights">Stuyvesant Heights</mat-option>
+                            <mat-option value="BROO:Sunset Park">Sunset Park</mat-option>
+                            <mat-option value="BROO:Tompkins Park North">Tompkins Park North</mat-option>
+                            <mat-option value="BROO:Vinegar Hill">Vinegar Hill</mat-option>
+                            <mat-option value="BROO:Weeksville">Weeksville</mat-option>
+                            <mat-option value="BROO:West Brighton">West Brighton</mat-option>
+                            <mat-option value="BROO:Williamsburg">Williamsburg</mat-option>
+                            <mat-option value="BROO:Windsor Terrace">Windsor Terrace</mat-option>
+                            <mat-option value="BROO:Wingate">Wingate</mat-option>
+                       </mat-optgroup>
+                        <mat-optgroup label="Manhattan">
+                            <mat-option value="MANH:Battery Park City">Battery Park City</mat-option>
+                            <mat-option value="MANH:Beekman Place">Beekman Place</mat-option>
+                            <mat-option value="MANH:Carnegie Hill">Carnegie Hill</mat-option>
+                            <mat-option value="MANH:Chelsea">Chelsea</mat-option>
+                            <mat-option value="MANH:Chinatown">Chinatown</mat-option>
+                            <mat-option value="MANH:Civic Center">Civic Center</mat-option>
+                            <mat-option value="MANH:Clinton">Clinton</mat-option>
+                            <mat-option value="MANH:Harlem East">Harlem East</mat-option>
+                            <mat-option value="MANH:East Village">East Village</mat-option>
+                            <mat-option value="MANH:Financial District">Financial District</mat-option>
+                            <mat-option value="MANH:Flatiron">Flatiron</mat-option>
+                            <mat-option value="MANH:Gramercy">Gramercy</mat-option>
+                            <mat-option value="MANH:Greenwich Village">Greenwich Village</mat-option>
+                            <mat-option value="MANH:Hamilton Heights">Hamilton Heights</mat-option>
+                            <mat-option value="MANH:Harlem Central">Harlem Central</mat-option>
+                            <mat-option value="MANH:Herald Square">Herald Square</mat-option>
+                            <mat-option value="MANH:Hudson Square">Hudson Square</mat-option>
+                            <mat-option value="MANH:Inwood">Inwood</mat-option>
+                            <mat-option value="MANH:Lenox Hill">Lenox Hill</mat-option>
+                            <mat-option value="MANH:Lincoln Square">Lincoln Square</mat-option>
+                            <mat-option value="MANH:Little Italy">Little Italy</mat-option>
+                            <mat-option value="MANH:Lower East Side">Lower East Side</mat-option>
+                            <mat-option value="MANH:Manhattan Valley">Manhattan Valley</mat-option>
+                            <mat-option value="MANH:Manhattanville">Manhattanville</mat-option>
+                            <mat-option value="MANH:Midtown South">Midtown South</mat-option>
+                            <mat-option value="MANH:Midtown">Midtown</mat-option>
+                            <mat-option value="MANH:Morningside Heights">Morningside Heights</mat-option>
+                            <mat-option value="MANH:Murray Hill">Murray Hill</mat-option>
+                            <mat-option value="MANH:NoHo">NoHo</mat-option>
+                            <mat-option value="MANH:Roosevelt Island">Roosevelt Island</mat-option>
+                            <mat-option value="MANH:SoHo">SoHo</mat-option>
+                            <mat-option value="MANH:South Village">South Village</mat-option>
+                            <mat-option value="MANH:Stuyvesant Town">Stuyvesant Town</mat-option>
+                            <mat-option value="MANH:Sutton Place">Sutton Place</mat-option>
+                            <mat-option value="MANH:Times Square">Times Square</mat-option>
+                            <mat-option value="MANH:Tribeca">Tribeca</mat-option>
+                            <mat-option value="MANH:Tudor City">Tudor City</mat-option>
+                            <mat-option value="MANH:Turtle Bay">Turtle Bay</mat-option>
+                            <mat-option value="MANH:Union Square">Union Square</mat-option>
+                            <mat-option value="MANH:Upper East Side">Upper East Side</mat-option>
+                            <mat-option value="MANH:Upper West Side">Upper West Side</mat-option>
+                            <mat-option value="MANH:Wall Street">Wall Street</mat-option>
+                            <mat-option value="MANH:Washington Heights">Washington Heights</mat-option>
+                            <mat-option value="MANH:West Village">West Village</mat-option>
+                            <mat-option value="MANH:Yorkville">Yorkville</mat-option>
+                        </mat-optgroup>
+                        <mat-optgroup label="Staten Island">
+                            <mat-option value="STAT:Annadale">Annadale</mat-option>
+                            <mat-option value="STAT:Arden Heights">Arden Heights</mat-option>
+                            <mat-option value="STAT:Arlington">Arlington</mat-option>
+                            <mat-option value="STAT:Arrochar">Arrochar</mat-option>
+                            <mat-option value="STAT:Bay Terrace">Bay Terrace</mat-option>
+                            <mat-option value="STAT:Bloomfield">Bloomfield</mat-option>
+                            <mat-option value="STAT:Bulls Head">Bulls Head</mat-option>
+                            <mat-option value="STAT:Butler Manor">Butler Manor</mat-option>
+                            <mat-option value="STAT:Castleton Corners">Castleton Corners</mat-option>
+                            <mat-option value="STAT:Charleston">Charleston</mat-option>
+                            <mat-option value="STAT:Chelsea">Chelsea</mat-option>
+                            <mat-option value="STAT:Clifton">Clifton</mat-option>
+                            <mat-option value="STAT:Concord">Concord</mat-option>
+                            <mat-option value="STAT:Dongan Hills">Dongan Hills</mat-option>
+                            <mat-option value="STAT:Egbertville">Egbertville</mat-option>
+                            <mat-option value="STAT:Elm Park">Elm Park</mat-option>
+                            <mat-option value="STAT:Eltingville">Eltingville</mat-option>
+                            <mat-option value="STAT:Emerson Hill">Emerson Hill</mat-option>
+                            <mat-option value="STAT:Fox Hills">Fox Hills</mat-option>
+                            <mat-option value="STAT:Graniteville">Graniteville</mat-option>
+                            <mat-option value="STAT:Grant City">Grant City</mat-option>
+                            <mat-option value="STAT:Grasmere">Grasmere</mat-option>
+                            <mat-option value="STAT:Great Kills">Great Kills</mat-option>
+                            <mat-option value="STAT:Greenridge">Greenridge</mat-option>
+                            <mat-option value="STAT:Grymes Hill">Grymes Hill</mat-option>
+                            <mat-option value="STAT:Heartland Village">Heartland Village</mat-option>
+                            <mat-option value="STAT:Howland Hook">Howland Hook</mat-option>
+                            <mat-option value="STAT:Huguenot">Huguenot</mat-option>
+                            <mat-option value="STAT:Lighthouse Hill">Lighthouse Hill</mat-option>
+                            <mat-option value="STAT:Livingston">Livingston</mat-option>
+                            <mat-option value="STAT:Manor Heights">Manor Heights</mat-option>
+                            <mat-option value="STAT:Mariners Harbor">Mariners Harbor</mat-option>
+                            <mat-option value="STAT:Midland Beach">Midland Beach</mat-option>
+                            <mat-option value="STAT:New Brighton">New Brighton</mat-option>
+                            <mat-option value="STAT:New Dorp">New Dorp</mat-option>
+                            <mat-option value="STAT:New Dorp Beach">New Dorp Beach</mat-option>
+                            <mat-option value="STAT:New Springville">New Springville</mat-option>
+                            <mat-option value="STAT:Oakwood">Oakwood</mat-option>
+                            <mat-option value="STAT:Old Place">Old Place</mat-option>
+                            <mat-option value="STAT:Old Town">Old Town</mat-option>
+                            <mat-option value="STAT:Park Hill">Park Hill</mat-option>
+                            <mat-option value="STAT:Pleasant Plains">Pleasant Plains</mat-option>
+                            <mat-option value="STAT:Port Ivory">Port Ivory</mat-option>
+                            <mat-option value="STAT:Port Richmond">Port Richmond</mat-option>
+                            <mat-option value="STAT:Princes Bay">Prince's Bay</mat-option>
+                            <mat-option value="STAT:Randall Manor">Randall Manor</mat-option>
+                            <mat-option value="STAT:Richmond Town">Richmond Town</mat-option>
+                            <mat-option value="STAT:Richmond Valley">Richmond Valley</mat-option>
+                            <mat-option value="STAT:Rosebank">Rosebank</mat-option>
+                            <mat-option value="STAT:Rossville">Rossville</mat-option>
+                            <mat-option value="STAT:Sandy Ground">Sandy Ground</mat-option>
+                            <mat-option value="STAT:Shore Acres">Shore Acres</mat-option>
+                            <mat-option value="STAT:Silver Lake">Silver Lake</mat-option>
+                            <mat-option value="STAT:South Beach">South Beach</mat-option>
+                            <mat-option value="STAT:St George">St George</mat-option>
+                            <mat-option value="STAT:Stapleton">Stapleton</mat-option>
+                            <mat-option value="STAT:Sunnyside">Sunnyside</mat-option>
+                            <mat-option value="STAT:Todt Hill">Todt Hill</mat-option>
+                            <mat-option value="STAT:Tompkinsville">Tompkinsville</mat-option>
+                            <mat-option value="STAT:Tottenville">Tottenville</mat-option>
+                            <mat-option value="STAT:Travis">Travis</mat-option>
+                            <mat-option value="STAT:Ward Hill">Ward Hill</mat-option>
+                            <mat-option value="STAT:West Brighton">West Brighton</mat-option>
+                            <mat-option value="STAT:Westerleigh">Westerleigh</mat-option>
+                            <mat-option value="STAT:Willowbrook">Willowbrook</mat-option>
+                            <mat-option value="STAT:Woodrow">Woodrow</mat-option>
+                        </mat-optgroup>
+                        <mat-optgroup label="Queens">
+                            <mat-option value="QUEE:Arverne">Arverne</mat-option>
+                            <mat-option value="QUEE:Astoria">Astoria</mat-option>
+                            <mat-option value="QUEE:Astoria Heights">Astoria Heights</mat-option>
+                            <mat-option value="QUEE:Auburndale">Auburndale</mat-option>
+                            <mat-option value="QUEE:Bay Terrace">Bay Terrace</mat-option>
+                            <mat-option value="QUEE:Bayside">Bayside</mat-option>
+                            <mat-option value="QUEE:Bayswater">Bayswater</mat-option>
+                            <mat-option value="QUEE:Beechhurst">Beechhurst</mat-option>
+                            <mat-option value="QUEE:Bellaire">Bellaire</mat-option>
+                            <mat-option value="QUEE:Belle Harbor">Belle Harbor</mat-option>
+                            <mat-option value="QUEE:Bellerose">Bellerose</mat-option>
+                            <mat-option value="QUEE:Blissville">Blissville</mat-option>
+                            <mat-option value="QUEE:Breezy Point">Breezy Point</mat-option>
+                            <mat-option value="QUEE:Briarwood">Briarwood</mat-option>
+                            <mat-option value="QUEE:Broad Channel">Broad Channel</mat-option>
+                            <mat-option value="QUEE:Brookville">Brookville</mat-option>
+                            <mat-option value="QUEE:Cambria Heights">Cambria Heights</mat-option>
+                            <mat-option value="QUEE:Clearview">Clearview</mat-option>
+                            <mat-option value="QUEE:College Point">College Point</mat-option>
+                            <mat-option value="QUEE:Douglaston">Douglaston</mat-option>
+                            <mat-option value="QUEE:Dutch Kills">Dutch Kills</mat-option>
+                            <mat-option value="QUEE:East Elmhurst">East Elmhurst</mat-option>
+                            <mat-option value="QUEE:Edgemere">Edgemere</mat-option>
+                            <mat-option value="QUEE:Elmhurst">Elmhurst</mat-option>
+                            <mat-option value="QUEE:Far Rockaway">Far Rockaway</mat-option>
+                            <mat-option value="QUEE:Floral Park">Floral Park</mat-option>
+                            <mat-option value="QUEE:Flushing">Flushing</mat-option>
+                            <mat-option value="QUEE:Flushing Downtown">Flushing Downtown</mat-option>
+                            <mat-option value="QUEE:Forest Hills">Forest Hills</mat-option>
+                            <mat-option value="QUEE:Forest Hills Gardens">Forest Hills Gardens</mat-option>
+                            <mat-option value="QUEE:Fresh Meadows">Fresh Meadows</mat-option>
+                            <mat-option value="QUEE:Glen Oaks">Glen Oaks</mat-option>
+                            <mat-option value="QUEE:Glendale">Glendale</mat-option>
+                            <mat-option value="QUEE:Hammels">Hammels</mat-option>
+                            <mat-option value="QUEE:Hillcrest">Hillcrest</mat-option>
+                            <mat-option value="QUEE:Hollis">Hollis</mat-option>
+                            <mat-option value="QUEE:Holliswood">Holliswood</mat-option>
+                            <mat-option value="QUEE:Howard Beach">Howard Beach</mat-option>
+                            <mat-option value="QUEE:Hunters Point">Hunters Point</mat-option>
+                            <mat-option value="QUEE:Jackson Heights">Jackson Heights</mat-option>
+                            <mat-option value="QUEE:Jamaica">Jamaica</mat-option>
+                            <mat-option value="QUEE:Jamaica Center">Jamaica Center</mat-option>
+                            <mat-option value="QUEE:Jamaica Estates">Jamaica Estates</mat-option>
+                            <mat-option value="QUEE:Jamaica Hills">Jamaica Hills</mat-option>
+                            <mat-option value="QUEE:Kew Gardens">Kew Gardens</mat-option>
+                            <mat-option value="QUEE:Kew Gardens Hills">Kew Gardens Hills</mat-option>
+                            <mat-option value="QUEE:Laurelton">Laurelton</mat-option>
+                            <mat-option value="QUEE:Lefrak City">Lefrak City</mat-option>
+                            <mat-option value="QUEE:Lindenwood">Lindenwood</mat-option>
+                            <mat-option value="QUEE:Little Neck">Little Neck</mat-option>
+                            <mat-option value="QUEE:Long Island City">Long Island City</mat-option>
+                            <mat-option value="QUEE:Malba">Malba</mat-option>
+                            <mat-option value="QUEE:Maspeth">Maspeth</mat-option>
+                            <mat-option value="QUEE:Middle Village">Middle Village</mat-option>
+                            <mat-option value="QUEE:Murray Hill">Murray Hill</mat-option>
+                            <mat-option value="QUEE:Neponsit">Neponsit</mat-option>
+                            <mat-option value="QUEE:New Hyde Park">New Hyde Park</mat-option>
+                            <mat-option value="QUEE:North Corona">North Corona</mat-option>
+                            <mat-option value="QUEE:Oakland Gardens">Oakland Gardens</mat-option>
+                            <mat-option value="QUEE:Ozone Park">Ozone Park</mat-option>
+                            <mat-option value="QUEE:Pomonok">Pomonok</mat-option>
+                            <mat-option value="QUEE:Queens Village">Queens Village</mat-option>
+                            <mat-option value="QUEE:Queensboro Hill">Queensboro Hill</mat-option>
+                            <mat-option value="QUEE:Ravenswood">Ravenswood</mat-option>
+                            <mat-option value="QUEE:Rego Park">Rego Park</mat-option>
+                            <mat-option value="QUEE:Richmond Hill">Richmond Hill</mat-option>
+                            <mat-option value="QUEE:Ridgewood">Ridgewood</mat-option>
+                            <mat-option value="QUEE:Rochdale">Rochdale</mat-option>
+                            <mat-option value="QUEE:Rockaway Park">Rockaway Park</mat-option>
+                            <mat-option value="QUEE:Rosedale">Rosedale</mat-option>
+                            <mat-option value="QUEE:Roxbury">Roxbury</mat-option>
+                            <mat-option value="QUEE:Seaside">Seaside</mat-option>
+                            <mat-option value="QUEE:Somerville">Somerville</mat-option>
+                            <mat-option value="QUEE:South Corona">South Corona</mat-option>
+                            <mat-option value="QUEE:South Jamaica">South Jamaica</mat-option>
+                            <mat-option value="QUEE:South Ozone Park">South Ozone Park</mat-option>
+                            <mat-option value="QUEE:Springfield Gardens">Springfield Gardens</mat-option>
+                            <mat-option value="QUEE:St Albans">St Albans</mat-option>
+                            <mat-option value="QUEE:Steinway">Steinway</mat-option>
+                            <mat-option value="QUEE:Sunnyside">Sunnyside</mat-option>
+                            <mat-option value="QUEE:Sunnyside Gardens">Sunnyside Gardens</mat-option>
+                            <mat-option value="QUEE:Utopia">Utopia</mat-option>
+                            <mat-option value="QUEE:Whitestone">Whitestone</mat-option>
+                            <mat-option value="QUEE:Woodhaven">Woodhaven</mat-option>
+                            <mat-option value="QUEE:Woodside">Woodside</mat-option>
+                        </mat-optgroup>
+                    </mat-select>
+                </mat-form-field><br>
+                {{tutorNeighborhoods}}
+            </div>            
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+            </div>
+        </mat-step>
+    </mat-horizontal-stepper>
+</div>

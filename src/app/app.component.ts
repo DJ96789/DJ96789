@@ -5,7 +5,7 @@ import { map, startWith } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 import { MessageDialogComponent } from './Components/message-dialog/message-dialog.component';
-import { Router } from '@angular/router';
+import { Router, Event, NavigationStart, NavigationEnd, NavigationError } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
+
 export class AppComponent implements OnInit {
   title = 'LearnLink';
   routerUrl:string = '';
@@ -35,16 +36,34 @@ export class AppComponent implements OnInit {
   minDate = new Date(2018,3,10);
   maxDate = new Date(2019,3,10);
 
-  constructor( private snackBar: MatSnackBar, public dialog: MatDialog, private _router:Router) {
-    this.routerUrl = _router.url;
-  }
+  constructor(private snackBar: MatSnackBar, public dialog: MatDialog, private _router: Router) {
+    this._router.events.subscribe((event: Event) => {
+      if (event instanceof NavigationStart) {
+        // Show progress spinner or progress bar
+        console.log('Route change detected');
+      }
 
+      if (event instanceof NavigationEnd) {
+        // Hide progress spinner or progress bar
+        this.routerUrl = event.url;
+        console.log(event);
+      }
+
+      if (event instanceof NavigationError) {
+        // Hide progress spinner or progress bar
+
+        // Present error to user
+        console.log(event.error);
+      }
+    });
+  }
 
   ngOnInit(): void {
       this.filteredOptions = this.myControl.valueChanges.pipe(
         startWith(''),
         map(value => this._filter(value))
       )
+      this.routerUrl = this._router.url;
   }
 
   private _filter(value: string): string[] {

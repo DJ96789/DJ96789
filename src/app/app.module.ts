@@ -11,6 +11,7 @@ import { UserService } from './Services/User/user.service';
 import { MemberService } from './Services/Member/member.service';
 import { TutorService } from './Services/Tutor/tutor.service';
 import { StudentService } from './Services/Student/student.service';
+import { NeighborhoodService } from './Services/Neighborhood/neighborhood.service';
 import { WelcomeComponent } from './Components/welcome/welcome.component';
 import { MaterialModule } from './Modules/material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -22,6 +23,7 @@ import { StudentComponent } from './Components/student/student.component';
 import { RegisterTutorComponent } from './Components/register-tutor/register-tutor.component';
 import { RegisterMemberComponent } from './Components/register-member/register-member.component';
 import { RegisterStudentComponent } from './Components/register-student/register-student.component';
+import { NeighborhoodsComponent } from './Components/neighborhoods/neighborhoods.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { RegisterStudentComponent } from './Components/register-student/register
     StudentComponent,
     RegisterTutorComponent,
     RegisterMemberComponent,
-    RegisterStudentComponent
+    RegisterStudentComponent,
+    NeighborhoodsComponent
   ],
   entryComponents: [MessageDialogComponent],
   imports: [
@@ -47,7 +50,7 @@ import { RegisterStudentComponent } from './Components/register-student/register
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [AuthService, UserService, MemberService, TutorService, StudentService],
+  providers: [AuthService, UserService, MemberService, TutorService, StudentService, NeighborhoodService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

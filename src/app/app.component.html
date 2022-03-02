@@ -25,7 +25,7 @@
     </a> 
 </div> 
 -->
-<mat-toolbar color="primary" class="navbar" *ngIf="routerUrl != '/welcome' && routerUrl != '/'">
+<mat-toolbar color="primary" class="navbar" >
   <div>
     <img
       width="35"
@@ -34,7 +34,7 @@
     />
     <span>Welcome to LearnLink</span>
   </div>
-  <div>
+  <div *ngIf="routerUrl != '/welcome' && routerUrl != '/'">
   
       <mat-menu #headerMenu="matMenu" xPosition="after" yPosition="above" class="headerButton">
         <button mat-menu-item [matMenuTriggerFor]="headerSubMenu">Member</button>

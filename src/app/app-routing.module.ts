@@ -9,6 +9,7 @@ import { RegisterTutorComponent } from './Components/register-tutor/register-tut
 import { RegisterMemberComponent } from './Components/register-member/register-member.component';
 import { RegisterStudentComponent } from './Components/register-student/register-student.component';
 import { WelcomeComponent } from './Components/welcome/welcome.component';
+import { NeighborhoodsComponent } from './Components/neighborhoods/neighborhoods.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/welcome', pathMatch: 'full'},
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'register-tutor', component: RegisterTutorComponent},
   { path: 'register-member', component: RegisterMemberComponent},
   { path: 'register-student', component: RegisterStudentComponent},
+  { path: 'neighborhoods', component: NeighborhoodsComponent},
 ];
 
 @NgModule({

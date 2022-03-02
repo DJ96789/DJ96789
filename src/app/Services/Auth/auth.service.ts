@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { UserObj } from 'src/app/Models/userObj';
+import { UserObj } from 'src/app/Interfaces/userObj';
 import { UrlSegment } from '@angular/router';
 
 @Injectable({
