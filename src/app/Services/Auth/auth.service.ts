@@ -3,44 +3,43 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { UserObj } from 'src/app/Interfaces/userObj';
 import { UrlSegment } from '@angular/router';
+import { LLAuth } from 'src/app/Models/LLAuth';
+import { AuthObj } from 'src/app/Interfaces/authObj';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  currentUserEmail:string = "";
+  loggedInUsers:AuthObj[] = [];
   allUsers:UserObj[] = [];
-  currentUser:UserObj = {
-    ID: 1, 
-    FirstName: "Don", 
-    LastName: "Johnson", 
-    isActive: true,
-    Email: '',
-    PW: '1234',
-    Roles: [],
-    NickName: '',
-    Phone: '',
-    webUrl: ''
-  };
 
   constructor(private httpClient: HttpClient) { }
 
   loginUser(userEmail: string, password: string): boolean {
 
-    if (userEmail.length>0 && password.length>0 && this.isUserRegistered(userEmail))
+    if (userEmail.length>0 && password.length>0 && this.isUserRegistered(userEmail) && !this.isLoggedIn(userEmail))
     {
-      this.currentUserEmail = userEmail;
+      let auth:AuthObj = 
+      { 
+        Email: userEmail, 
+        LoginDate: new Date(),
+      };
+      this.loggedInUsers.push(auth);
     }
-    console.log('userEmail: ', userEmail,  ' ',  'password: ',  password);
+    console.log('userEmail: ', userEmail,  ' ',  'password: ',  password, "logged in");
     return true;
   }
 
   logoutUser(userEmail: string): boolean {
 
-    if (userEmail.length>0)
+    if (userEmail.length>0 && this.isUserRegistered(userEmail) && this.isLoggedIn(userEmail))
     {
       console.log('Logging out user: ',  userEmail );
-      this.currentUserEmail = "";
+      let loggedInUsr = this.loggedInUsers.find(item => item.Email===userEmail);
+      if (loggedInUsr !== undefined) 
+      {
+        this.loggedInUsers.splice(this.loggedInUsers.indexOf(loggedInUsr,1));
+      }
     }
     return true;
   }
@@ -49,7 +48,8 @@ export class AuthService {
     let status:string = 'not logged in!'
     let retval:boolean = false;
 
-    if (this.currentUserEmail.length>0 && userEmail==this.currentUserEmail)
+    let loggedInUsr = this.loggedInUsers.find(item => item.Email===userEmail);
+    if (loggedInUsr != undefined)
     {
       status = 'logged in.';
       retval = true;
@@ -57,6 +57,13 @@ export class AuthService {
 
     console.log('userEmail: ',  userEmail,  ' is ',  status);
     return retval;
+  }
+
+  isUserRegistered(userEmail:string): boolean {
+    let registeredUser = this.allUsers.find(item => item.Email===userEmail);
+
+    console.log("User for email '", userEmail,  "' is: ", registeredUser);
+    return registeredUser!==undefined;
   }
 
   registerUser(user: UserObj): boolean {
@@ -95,10 +102,10 @@ export class AuthService {
     return this.allUsers;
   }
 
-  isUserRegistered(userEmail:string): boolean {
-    let registeredUser = this.allUsers.find(item => item.Email===userEmail);
+  getAllLoggedInUsers(): AuthObj[] {
+    console.log(this.loggedInUsers);
 
-    console.log("User for email '", userEmail,  "' is: ", registeredUser);
-    return registeredUser!==undefined;
+    return this.loggedInUsers;
   }
+
 }

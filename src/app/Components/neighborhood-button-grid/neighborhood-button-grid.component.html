@@ -1,0 +1,20 @@
+<!-- <div>
+    <mat-form-field floatLabel="never" appearance="standard" color="accent"> -->
+      <mat-label>Select desired neighborhoods in:</mat-label>
+      <mat-select class="borough-selector" [(value)]="borough">
+        <mat-option>None</mat-option> 
+        <mat-option value="Bronx">Bronx</mat-option> 
+        <mat-option value="Brooklyn">Brooklyn</mat-option> 
+        <mat-option value="Manhattan">Manhattan</mat-option> 
+        <mat-option value="Staten Island">Staten Island</mat-option> 
+        <mat-option value="Queens">Queens</mat-option> 
+      </mat-select>
+<!--    </mat-form-field>
+</div> -->
+<mat-grid-list id="Grid" cols="4" rowHeight="2:1" class="grid-list">
+    <ng-container *ngFor="let neighborhood of filterByBorough">
+        <mat-grid-tile class="grid-tile" colspan="1" rowspan="1">
+            <mat-button-toggle value="Raised" color="primary" class="grid-button" (click)="clicked($event, neighborhood.Name)">{{neighborhood.Name}}</mat-button-toggle>
+        </mat-grid-tile>
+    </ng-container>
+</mat-grid-list>

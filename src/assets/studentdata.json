@@ -1,0 +1,29 @@
+{
+    "sliderArray": [
+        {
+            "img": "http://bloquo.cc/img/works/1.jpg",
+            "alt": "Loves fish.",
+            "text": "Angel Fuentes"
+        },
+        {
+            "img": "http://bloquo.cc/img/works/2.jpg",
+            "alt": "Strong Angular developer.",
+            "text": "David Chapelle"
+        },
+        {
+            "img": "http://bloquo.cc/img/works/3.jpg",
+            "alt": "Freaky Deaky.",
+            "text": "Hermann Munster"
+        },
+        {
+            "img": "https://succeedfeed.com/wp-content/uploads/2019/12/rihanna-quotes-featured.jpg",
+            "alt": "Life's too short to be sittin' around miserable.",
+            "text": "Rihanna Smith"
+        },
+        {
+            "img": "http://bloquo.cc/img/works/5.jpg",
+            "alt": "Excuse me, sir, but you’re sitting on my body, which is also my face.",
+            "text": "Sponge Bob Squarepants"
+        }
+    ]
+}

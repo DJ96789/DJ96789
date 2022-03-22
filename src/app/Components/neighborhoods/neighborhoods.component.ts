@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { IPeriodicElement } from 'src/app/Interfaces/i-periodic-element.model';
-import { NeighborhoodService } from 'src/app/Services/Neighborhood/neighborhood.service';
+// import { NeighborhoodService } from 'src/app/Services/Neighborhood/neighborhood.service';
 
 
 
