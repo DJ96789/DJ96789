@@ -1,6 +1,7 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog'
+import { NeighborhoodButtonGridComponent } from '../neighborhood-button-grid/neighborhood-button-grid.component';
 
 @Component({
   selector: 'app-message-dialog',
@@ -10,7 +11,13 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog'
 export class MessageDialogComponent implements OnInit {
   form: FormGroup;
   description:string;
-  studentInterests:string = '';
+  studentInterests:string ='';
+  selectedNeighborhoods:string[] = [];
+
+  @ViewChild(NeighborhoodButtonGridComponent)
+  set appShark(ngrid: NeighborhoodButtonGridComponent) {
+    this.selectedNeighborhoods = ngrid.selectedHoods;
+  };
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data:any,
@@ -27,6 +34,7 @@ export class MessageDialogComponent implements OnInit {
     this.form = this.fb.group({
     description: [this.description, []],
     })
+    console.log('Dialog ngInit. selectedNeighborhoods:', this.selectedNeighborhoods);
   }
 
   save() {
