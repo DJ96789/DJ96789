@@ -14,7 +14,7 @@ export class NeighborhoodButtonGridComponent implements OnInit {
 
   constructor(http: HttpClient, hoodservice: NeighborhoodService) { 
     console.log("Got to neighborhood button grid!");
-    this.borough="Manhattan";
+    this.borough="Central, Near North and Near South Side";
     this.neighborhoods= [];
     this.httpClient = http;
     this.hoods = hoodservice;
