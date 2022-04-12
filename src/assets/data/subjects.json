@@ -1,0 +1,244 @@
+{
+  "subjectArray" : [
+    {
+      "Catetory": "English and Language Arts",
+      "Subject": "K-5 ELA"
+    },
+    {
+      "Catetory": "English and Language Arts",
+      "Subject": "6-8 ELA"
+    },
+    {
+      "Catetory": "English and Language Arts",
+      "Subject": "American literature"
+    },
+    {
+      "Catetory": "English and Language Arts",
+      "Subject": "British literature"
+    },
+    {
+      "Catetory": "English and Language Arts",
+      "Subject": "Contemporary literature"
+    },
+    {
+      "Catetory": "English and Language Arts",
+      "Subject": "Creative writing"
+    },
+    {
+      "Catetory": "English and Language Arts",
+      "Subject": "Communication skills"
+    },
+    {
+      "Catetory": "English and Language Arts",
+      "Subject": "English language and composition"
+    },
+    {
+      "Catetory": "English and Language Arts",
+      "Subject": "Journalism"
+    },
+    {
+      "Catetory": "English and Language Arts",
+      "Subject": "World literature"
+    },
+    {
+      "Catetory": "Languages",
+      "Subject": "ESL"
+    },
+    {
+      "Catetory": "Languages",
+      "Subject": "Spanish"
+    },
+    {
+      "Catetory": "Languages",
+      "Subject": "French"
+    },
+    {
+      "Catetory": "Languages",
+      "Subject": "German"
+    },
+    {
+      "Catetory": "Languages",
+      "Subject": "Chinese"
+    },
+    {
+      "Catetory": "Mathematics",
+      "Subject": "K-5 math"
+    },
+    {
+      "Catetory": "Mathematics",
+      "Subject": "6-8 math"
+    },
+    {
+      "Catetory": "Mathematics",
+      "Subject": "Algebra 1"
+    },
+    {
+      "Catetory": "Mathematics",
+      "Subject": "Geometry"
+    },
+    {
+      "Catetory": "Mathematics",
+      "Subject": "Algebra 2"
+    },
+    {
+      "Catetory": "Mathematics",
+      "Subject": "Trigonometry"
+    },
+    {
+      "Catetory": "Mathematics",
+      "Subject": "Pre-Calculus"
+    },
+    {
+      "Catetory": "Mathematics",
+      "Subject": "Calculus"
+    },
+    {
+      "Catetory": "Mathematics",
+      "Subject": "K-5 science"
+    },
+    {
+      "Catetory": "Mathematics",
+      "Subject": "6-8 science"
+    },
+    {
+      "Catetory": "Mathematics",
+      "Subject": "Biology"
+    },
+    {
+      "Catetory": "Mathematics",
+      "Subject": "Chemistry"
+    },
+    {
+      "Catetory": "Mathematics",
+      "Subject": "Physical/Earth Science"
+    },
+    {
+      "Catetory": "Mathematics",
+      "Subject": "Physics"
+    },
+    {
+      "Catetory": "Mathematics",
+      "Subject": "Environmental Science"
+    },
+    {
+      "Catetory": "Mathematics",
+      "Subject": "Astronomy"
+    },
+    {
+      "Catetory": "Mathematics",
+      "Subject": "Anatomy"
+    },
+    {
+      "Catetory": "Social Studies and History",
+      "Subject": "K-5 Social Studies"
+    },
+    {
+      "Catetory": "Social Studies and History",
+      "Subject": "6-8 Social Studies"
+    },
+    {
+      "Catetory": "Social Studies and History",
+      "Subject": "US History/Government"
+    },
+    {
+      "Catetory": "Social Studies and History",
+      "Subject": "World History"
+    },
+    {
+      "Catetory": "Social Studies and History",
+      "Subject": "Anthropology"
+    },
+    {
+      "Catetory": "Social Studies and History",
+      "Subject": "European History"
+    },
+    {
+      "Catetory": "Social Studies and History",
+      "Subject": "Geography"
+    },
+    {
+      "Catetory": "Social Studies and History",
+      "Subject": "Global studies"
+    },
+    {
+      "Catetory": "Social Studies and History",
+      "Subject": "Macroeconomics"
+    },
+    {
+      "Catetory": "Social Studies and History",
+      "Subject": "Microeconomics"
+    },
+    {
+      "Catetory": "Social Studies and History",
+      "Subject": "Psychology"
+    },
+    {
+      "Catetory": "Social Studies and History",
+      "Subject": "Sociology"
+    },
+    {
+      "Catetory": "Social Studies and History",
+      "Subject": "Women's studies"
+    },
+    {
+      "Catetory": "Test Prep",
+      "Subject": "ISEES"
+    },
+    {
+      "Catetory": "Test Prep",
+      "Subject": "SSAT"
+    },
+    {
+      "Catetory": "Test Prep",
+      "Subject": "SHSAT"
+    },
+    {
+      "Catetory": "Test Prep",
+      "Subject": "State Tests<"
+    },
+    {
+      "Catetory": "Test Prep",
+      "Subject": "NYS Regents"
+    },
+    {
+      "Catetory": "Test Prep",
+      "Subject": "ACT"
+    },
+    {
+      "Catetory": "Test Prep",
+      "Subject": "SAT"
+    },
+    {
+      "Catetory": "Test Prep",
+      "Subject": "SAT Subject Tests"
+    },
+    {
+      "Catetory": "Test Prep",
+      "Subject": "LSAT"
+    },
+    {
+      "Catetory": "Test Prep",
+      "Subject": "GRE"
+    },
+    {
+      "Catetory": "Test Prep",
+      "Subject": "GMAT"
+    },
+    {
+      "Catetory": "Test Prep",
+      "Subject": "Other"
+    },
+    {
+      "Catetory": "Other",
+      "Subject": "College Apps"
+    },
+    {
+      "Catetory": "Other",
+      "Subject": "AP Levels"
+    },
+    {
+      "Catetory": "Other",
+      "Subject": "Other"
+    }
+  ]
+}
