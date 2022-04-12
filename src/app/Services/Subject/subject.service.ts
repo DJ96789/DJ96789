@@ -19,7 +19,7 @@ export class SubjectService {
   subjects: iSubject[];
 
   getData():Observable<SubjectResult> {
-    console.log("Neighborhood service getData()");
+    console.log("Subject service getData()");
 
     return this.httpClient.get<SubjectResult> (URL)
     .pipe(

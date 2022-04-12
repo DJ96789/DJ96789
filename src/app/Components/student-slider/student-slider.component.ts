@@ -1,6 +1,7 @@
 import { StudentService } from 'src/app/Services/Student/student.service';
 import { Component, OnInit, ViewEncapsulation} from '@angular/core';
 import { StudentResult } from '../../Interfaces/StudentResult';
+import { iStudent } from 'src/app/Interfaces/iStudent.model';
 
 @Component({
   selector: 'app-student-slider',
@@ -10,15 +11,13 @@ import { StudentResult } from '../../Interfaces/StudentResult';
 })
 
 export class StudentSliderComponent implements OnInit {
-  sliderArray: [
-    {'img': string, 'alt': string, 'text': string }
-  ];//StudentResult[];
+  studentArray: iStudent[];
   transform: number;
   selectedIndex = 0;
   constructor(private data: StudentService) {
     console.log("Student slider constructor")
 
-    this.sliderArray = [{'img': "", 'alt': "", 'text': "" }];
+    this.studentArray = [];
     this.selectedIndex = 0;
     this.transform = 100;
   }
@@ -27,9 +26,9 @@ export class StudentSliderComponent implements OnInit {
     console.log("Got to student slider ngOnInit()!")
 
     this.data.getData().subscribe((result: StudentResult) => {
-      this.sliderArray = result.sliderArray;
+      this.studentArray = result.studentArray;
       console.log("Got data ngOnInit()!", result );
-      console.log("this.sliderArray", this.sliderArray);
+      console.log("this.studentArray", this.studentArray);
     });
   }
 
