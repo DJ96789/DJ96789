@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
-import { MessageDialogComponent } from './Components/message-dialog/message-dialog.component';
+import { NewStudentDialogComponent } from './Components/new-student-dialog/new-student-dialog.component';
 import { Router, Event, NavigationStart, NavigationEnd, NavigationError } from '@angular/router';
 
 @Component({
@@ -86,7 +86,7 @@ export class AppComponent implements OnInit {
   }
 
   openDialog() {
-    let dialogRef = this.dialog.open(MessageDialogComponent, { data:{name: 'Username'}});
+    let dialogRef = this.dialog.open(NewStudentDialogComponent, { data:{name: 'Username'}});
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('Dialog result:', {result});

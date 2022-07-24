@@ -31,17 +31,17 @@ export class NewStudentDialogComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data:any,
     private fb: FormBuilder,
     private dialogRef: MatDialogRef<NewStudentDialogComponent>,
-  ) { 
+  ) {
     this.description = data.name;
     this.studentForm = this.fb.group({
-      description: [this.description, []],
+      description: data.description,
       firstName: "",
       lastName: "",
       loginEmail: "",
       password: "",
       gender: "",
       gradeLevel: "",
-      age: "",  
+      age: "",
       subjectInterests: [],
       selectedNeighborhoods: [] });
   }
@@ -69,7 +69,7 @@ export class NewStudentDialogComponent implements OnInit {
       this.dialogRef.close();
   }
 
-  
+
   onSend(form: NgForm) {
     let data = form.value;
     console.log(data);

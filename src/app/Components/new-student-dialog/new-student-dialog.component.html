@@ -1,0 +1,149 @@
+<h2 mat-dialog-title>New Student</h2>  
+<form #userForm="ngForm" (ngSubmit)="onSend(studentForm.value)">
+    <mat-dialog-content [formGroup]="studentForm">
+        <!-- {{data.name}}. -->
+        <mat-horizontal-stepper linear>
+            <mat-step label="Student Details" completed="true">
+                <p>Student Details</p>
+                <div>
+                    <mat-form-field floatLabel="never" appearance="fill" color="accent">
+                        <mat-label>First Name</mat-label>
+                        <input formControlName="firstName" matInput required />
+                    </mat-form-field>
+                    <mat-form-field floatLabel="always" appearance="fill" color="warn">
+                        <mat-label>Last Name</mat-label>
+                        <input formControlName="lastName" matInput required />
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Login Email</mat-label>
+                        <input formControlName="loginEmail" matInput required />
+                    </mat-form-field>
+                    <mat-form-field floatLabel="auto" appearance="fill">
+                        <mat-label>Password</mat-label>
+                        <input type="password" formControlName="password" matInput required />
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field floatLabel="auto" appearance="fill">
+                        <mat-label>Gender (between 0/male and 10/female)</mat-label>
+                        <input type="number" formControlName="gender" matInput min="0" max="10" />
+                    </mat-form-field>
+                    <mat-form-field floatLabel="auto" appearance="fill">
+                        <mat-label>Age (between 4 and 100)</mat-label>
+                        <input type="number" formControlName="age" matInput min="4" max="100" />
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Grade Level</mat-label>
+                        <mat-select formControlName="gradeLevel" multiple>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <button mat-button matStepperNext>Next</button>
+                </div>
+            </mat-step>
+            <mat-step label="Subject Interests" completed="false" optional>
+                <div>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Select subjects interests:</mat-label>
+                        <mat-select [(value)]="subjectInterests" formControlName="subjectInterests" multiple>
+                            <mat-option>None</mat-option>
+                            <mat-optgroup label="English and Language Arts">
+                                <mat-option value="ENGL:K-5 ELA">K-5 ELA</mat-option>
+                                <mat-option value="ENGL:6-8 ELA">6-8 ELA</mat-option>
+                                <mat-option value="ENGL:American literature">American literature</mat-option>
+                                <mat-option value="ENGL:British literature">British literature</mat-option>
+                                <mat-option value="ENGL:Contemporary literature">Contemporary literature</mat-option>
+                                <mat-option value="ENGL:Creative writing">Creative writing</mat-option>
+                                <mat-option value="ENGL:Communication skills">Communication skills</mat-option>
+                                <mat-option value="ENGL:English language and composition">English language and
+                                    composition
+                                </mat-option>
+                                <mat-option value="ENGL:Journalism">Journalism</mat-option>
+                                <mat-option value="ENGL:World literature">World literature</mat-option>
+                            </mat-optgroup>
+                            <mat-optgroup label="Languages">
+                                <mat-option value="LANG:ESL">ESL</mat-option>
+                                <mat-option value="LANG:Spanish">Spanish</mat-option>
+                                <mat-option value="LANG:French">French</mat-option>
+                                <mat-option value="LANG:German">German</mat-option>
+                                <mat-option value="LANG:Chinese">Chinese</mat-option>
+                            </mat-optgroup>
+                            <mat-optgroup label="Mathematics">
+                                <mat-option value="MATH:K-5 math">K-5 math</mat-option>
+                                <mat-option value="MATH:6-8 math">6-8 math</mat-option>
+                                <mat-option value="MATH:Algebra 1">Algebra 1</mat-option>
+                                <mat-option value="MATH:Geometry">Geometry</mat-option>
+                                <mat-option value="MATH:Algebra 2">Algebra 2</mat-option>
+                                <mat-option value="MATH:Trigonometry">Trigonometry</mat-option>
+                                <mat-option value="MATH:Pre-Calculus">Pre-Calculus</mat-option>
+                                <mat-option value="MATH:Calculus">Calculus</mat-option>
+                                <mat-option value="MATH:K-5 science">K-5 science</mat-option>
+                                <mat-option value="MATH:6-8 science">6-8 science</mat-option>
+                                <mat-option value="MATH:Biology">Biology</mat-option>
+                                <mat-option value="MATH:Chemistry">Chemistry</mat-option>
+                                <mat-option value="MATH:Physical/Earth Science">Physical/Earth Science</mat-option>
+                                <mat-option value="MATH:Physics">Physics</mat-option>
+                                <mat-option value="MATH:Environmental Science">Environmental Science</mat-option>
+                                <mat-option value="MATH:Astronomy">Astronomy</mat-option>
+                                <mat-option value="MATH:Anatomy">Anatomy</mat-option>
+                            </mat-optgroup>
+                            <mat-optgroup label="Social Studies and History">
+                                <mat-option value="HIST:K-5 Social Studies">K-5 Social Studies</mat-option>
+                                <mat-option value="HIST:6-8 Social Studies">6-8 Social Studies</mat-option>
+                                <mat-option value="HIST:US History/Government">US History/Government</mat-option>
+                                <mat-option value="HIST:World History">World History</mat-option>
+                                <mat-option value="HIST:Anthropology">Anthropology</mat-option>
+                                <mat-option value="HIST:European History">European History</mat-option>
+                                <mat-option value="HIST:Geography">Geography</mat-option>
+                                <mat-option value="HIST:Global studies">Global studies</mat-option>
+                                <mat-option value="HIST:Macroeconomics">Macroeconomics</mat-option>
+                                <mat-option value="HIST:Microeconomics">Microeconomics</mat-option>
+                                <mat-option value="HIST:Psychology">Psychology</mat-option>
+                                <mat-option value="HIST:Sociology">Sociology</mat-option>
+                                <mat-option value="HIST:Women's studies">Women's studies</mat-option>
+                            </mat-optgroup>
+                            <mat-optgroup label="Test Prep">
+                                <mat-option value="PREP:ISEES">ISEES</mat-option>
+                                <mat-option value="PREP:SSAT">SSAT</mat-option>
+                                <mat-option value="PREP:SHSAT">SHSAT</mat-option>
+                                <mat-option value="PREP:State Tests">State Tests</mat-option>
+                                <mat-option value="PREP:NYS Regents">NYS Regents</mat-option>
+                                <mat-option value="PREP:ACT">ACT</mat-option>
+                                <mat-option value="PREP:SAT">SAT</mat-option>
+                                <mat-option value="PREP:SAT Subject Tests">SAT Subject Tests</mat-option>
+                                <mat-option value="PREP:LSAT">LSAT</mat-option>
+                                <mat-option value="PREP:GRE">GRE</mat-option>
+                                <mat-option value="PREP:GMAT">GMAT</mat-option>
+                                <mat-option value="PREP:Other">Other</mat-option>
+                            </mat-optgroup>
+                            <mat-optgroup label="Other">
+                                <mat-option value="OTHR:College Apps">College Apps</mat-option>
+                                <mat-option value="OTHR:AP Levels">AP Levels</mat-option>
+                                <mat-option value="OTHR:Other">Other</mat-option>
+                            </mat-optgroup>
+                        </mat-select>
+                    </mat-form-field><br>
+                    {{subjectInterests}}
+                </div>
+                <div>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button matStepperNext>Next</button>
+                </div>
+            </mat-step>
+            <mat-step label="Neighborhoods" completed="false" optional>
+                <div>
+                    <app-neighborhood-button-grid formControlName="neighborhoods"></app-neighborhood-button-grid>
+                    {{selectedNeighborhoods}}
+                </div>
+                <div>
+                    <button mat-button matStepperPrevious>Back</button>
+                </div>
+            </mat-step>
+        </mat-horizontal-stepper>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button mat-button mat-dialog-close mat-dialog-close="false">Cancel</button>
+        <button mat-button mat-dialog-close mat-dialog-close="true">Add Student</button>
+    </mat-dialog-actions>
+</form>
