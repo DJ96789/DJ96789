@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { map } from 'rxjs';
 import { iNeighborhood } from 'src/app/Interfaces/iNeighborhood.model';
 import { NeighborhoodResult } from 'src/app/Interfaces/NeighborhoodResult';
@@ -11,6 +11,7 @@ import { NeighborhoodService } from 'src/app/Services/Neighborhood/neighborhood.
   styleUrls: ['./neighborhood-button-grid.component.scss']
 })
 export class NeighborhoodButtonGridComponent implements OnInit {
+  @Input() selectedHoods:string[];
 
   constructor(http: HttpClient, hoodservice: NeighborhoodService) { 
     console.log("Got to neighborhood button grid!");
@@ -40,7 +41,6 @@ export class NeighborhoodButtonGridComponent implements OnInit {
   borough: string;
   httpClient: HttpClient;
   hoods: NeighborhoodService;
-  selectedHoods: string[];
 
          
   clicked(e: any, hood: any){ 

@@ -16,7 +16,7 @@ import { NeighborhoodService } from './Services/Neighborhood/neighborhood.servic
 import { WelcomeComponent } from './Components/welcome/welcome.component';
 import { MaterialModule } from './Modules/material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MessageDialogComponent } from './Components/message-dialog/message-dialog.component';
+import { NewStudentDialogComponent } from './Components/new-student-dialog/new-student-dialog.component';
 import { TutorComponent } from './Components/tutor/tutor.component';
 import { MemberComponent } from './Components/member/member.component';
 import { SubscriberComponent } from './Components/subscriber/subscriber.component';
@@ -35,7 +35,7 @@ import { SubjectButtonGridComponent } from './Components/subject-button-grid/sub
     LoginComponent,
     RegisterComponent,
     WelcomeComponent,
-    MessageDialogComponent,
+    NewStudentDialogComponent,
     TutorComponent,
     MemberComponent,
     SubscriberComponent,
@@ -48,7 +48,7 @@ import { SubjectButtonGridComponent } from './Components/subject-button-grid/sub
     NeighborhoodButtonGridComponent,
     SubjectButtonGridComponent
   ],
-  entryComponents: [MessageDialogComponent],
+  entryComponents: [NewStudentDialogComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

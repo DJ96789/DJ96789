@@ -1,15 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { LLUser } from 'src/app/Models/llUser';
+import { LLUser } from 'src/app/Models/LLUser';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MemberService {
-  allMembers:LLUser[]=[]; 
+  allMembers:LLUser[]=[];
 
-  constructor(private httpClient: HttpClient) { 
-    this.allMembers = []; 
+  constructor(private httpClient: HttpClient) {
+    this.allMembers = [];
 
     var firstMember:LLUser =  new LLUser();
     firstMember.ID=1;
@@ -20,8 +20,8 @@ export class MemberService {
     firstMember.NickName="Maria Diez";
     firstMember.Phone="7779311";
     firstMember.webUrl="";
-    firstMember.isActive=true;     
-    this.allMembers.push(firstMember);   
+    firstMember.isActive=true;
+    this.allMembers.push(firstMember);
     var secondMember:LLUser =  new LLUser();
     secondMember.ID=2;
     secondMember.Email="kylevincentterry@gmail.com";
@@ -31,7 +31,7 @@ export class MemberService {
     secondMember.NickName="KT SHMOOV";
     secondMember.Phone="";
     secondMember.webUrl="";
-    secondMember.isActive=true;     
+    secondMember.isActive=true;
     var thirdMember:LLUser =  new LLUser();
     thirdMember.ID=3;
     thirdMember.Email="dj96789@yahoo.com";
@@ -41,7 +41,7 @@ export class MemberService {
     thirdMember.NickName="don";
     thirdMember.Phone="80863818078";
     thirdMember.webUrl="";
-    thirdMember.isActive=true;     
+    thirdMember.isActive=true;
     var thirdMember:LLUser =  new LLUser();
     thirdMember.ID=4;
     thirdMember.Email="fundikarimah@yahoo.com";
@@ -51,7 +51,7 @@ export class MemberService {
     thirdMember.NickName="Fundi";
     thirdMember.Phone="2817734442";
     thirdMember.webUrl="";
-    thirdMember.isActive=true;     
+    thirdMember.isActive=true;
   }
 
   getAllMembers(): LLUser[] {

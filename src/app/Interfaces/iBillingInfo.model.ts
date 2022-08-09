@@ -9,5 +9,5 @@ export interface iBillingInfo {
     CardNumber: string;
     CardCode: string;
     PhoneNumber: string;
-    Email: string;
+    ExpirationDate: Date;
 }
