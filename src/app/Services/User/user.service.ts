@@ -16,7 +16,7 @@ import { SubjectResult } from 'src/app/Interfaces/SubjectResult';
 })
 export class UserService {
   private user_api_url: string = 'http://localhost:8080/api/test';    //'api.localhost.com';
-  private users:UserObj[] = {} as UserObj[];
+  private users:Map<number, UserObj> = new Map() ;
   private current_user!: UserObj;
   private current_user_id: number = 0;
   private adminUsr:UserObj = {
@@ -70,37 +70,42 @@ export class UserService {
   } as UserObj;
 
 
-  constructor(private httpClient: HttpClient) {
-    this.users.push(this.adminUsr);
+  constructor(database?: String) {
+    if(database == undefined) {
+      this.users = new Map();
+    } else {
+      this.users = new Map(JSON.parse(database.toString()));
+    }
+
+    this.users.set(this.adminUsr.ID, this.adminUsr);
   }
 
   createUser(user: any): Observable<any> {
-    return this.httpClient.post(this.user_api_url + '/create', user)
-      .pipe(map((resp: any) => resp.json()),
-        catchError(error => this.tossError(error))
-      )
-
+    this.users.set(user.ID, user);
+    return of(true);
   }
-  getUsers(): Observable<any> {
-    return this.httpClient.get(this.user_api_url + '/read')
-      .pipe(map((resp: any) => resp.json()),
-        catchError(error => this.tossError(error))
-      )
 
+  getUsers(id: number): Observable<any> {
+    let user = this.users.get(id);
+
+    if(user == undefined) {
+      console.error("User " + id + " was not found.");
+      return of(undefined);
+    }
+
+    return of(user);
   }
+
   updateUser(user: any): Observable<any> {
-    return this.httpClient.get(this.user_api_url + '/update')
-      .pipe(map((resp: any) => resp.json()),
-        catchError(error => this.tossError(error))
-      )
+    this.users.set(this.current_user.ID, this.current_user);
 
+    return of(true);
   }
-  deleteUser(id: number): Observable<any> {
-    return this.httpClient.delete(this.user_api_url + '/delete/{id}')
-      .pipe(map((resp: any) => resp.json()),
-        catchError(error => this.tossError(error))
-      )
 
+  deleteUser(id: number): Observable<any> {
+    this.users.delete(id);
+
+    return of(true);
   }
 
   setCurrentUser(user: UserObj): Observable<boolean> {
@@ -119,6 +124,10 @@ export class UserService {
 
   getCurrentUserId(): Observable<number> {
     return of(this.current_user.ID);
+  }
+
+  serialize(): string {
+    return JSON.stringify(Array.from(this.users));
   }
 
   tossError(error: any) {
